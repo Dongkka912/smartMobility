@@ -31,5 +31,5 @@ if st.button('계산'):
     
 image = Image.open('porsche-1851246_960_720.jpg')
 
-st.image(image, caption='i can buy this car')       
+st.image(image, caption='i will buy this car')       
     
