@@ -77,4 +77,4 @@ ax.set_ylabel('Life Expectancy')
 st.pyplot(fig)
 
 else:
-    st.writer('#여기는 마이페이지 입니다.')    
+    st.write('#여기는 마이페이지 입니다.')    
