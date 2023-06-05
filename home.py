@@ -42,8 +42,8 @@ if add_selectbox == "체질량 계산기":
     st.image(image, caption='i will buy this car')
     
     
-    elif add_selectbox == '갭마인더':
-        st.write('#여기는 갭마인더 입니다.')       
+elif add_selectbox == '갭마인더':
+    st.write('#여기는 갭마인더 입니다.')       
         
     data = pd.read_csv('gapminder.csv')
 
