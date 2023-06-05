@@ -8,7 +8,7 @@ add_selectbox = st.sidebar.selectbox(
     ("체질량 계산기", "갭마인더", "마이페이지")
 )
 
-if add_selectbox == "체질량 계산기"
+if add_selectbox == "체질량 계산기":
     #체질량 치수 구하는 랩
     #몸무게, 키입력받기
 
@@ -49,14 +49,31 @@ data = pd.read_csv('gapminder.csv')
 
 st.write(data)  
 
+colors = []
+for x in data['continent']:
+    if x == 'Asia':
+        colors.append('tomato')
+    elif x =='Europe':
+        colors.append('blue')
+    elif x == 'Africa':
+        colors.append('olive')
+    elif x == 'Americas':
+        colors.append('green')
+    else:
+        colors.append('orange')                
+
+data['colors'] = 'colors'
+
 year = st.slider('년도를 선택하세요.', 1952,2005,2023,step = 5)
 st.write("year  :",year) 
 
 data = data[data["year"] == year]
 
 fig, ax = plt.subplots()
-ax.scatter(data['gdpPercap'],data['lifeExp'])
-
+ax.scatter(data['gdpPercap'],data['lifeExp'],s=data['pop']*0.000001)
+ax.set_title("How Does Gdp per Capital relate to Life Expectancy")
+ax.set_xlabel("Gdp per Capital")
+ax.set_ylabel('Life Expectancy')
 st.pyplot(fig)
 
 
