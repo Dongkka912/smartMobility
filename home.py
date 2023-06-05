@@ -1,7 +1,5 @@
 import streamlit as st
 from PIL import Image
-import pandas as pd
-import matplotlib.pyplot as plt
 
 #체질량 치수 구하는 랩
 #몸무게, 키입력받기
