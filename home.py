@@ -76,7 +76,5 @@ ax.set_xlabel("Gdp per Capital")
 ax.set_ylabel('Life Expectancy')
 st.pyplot(fig)
 
-
 else:
-    st.header('여기는 마이페이지 입니다.')    
-    
+    st.writer('#여기는 마이페이지 입니다.')    
