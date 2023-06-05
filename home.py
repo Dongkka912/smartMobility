@@ -1,28 +1,37 @@
 import streamlit as st
+from PIL import Image
+import pandas as pd
+import matplotlib.pyplot as plt
 
-st.write('# Hi! Welcome to My App!')
+#체질량 치수 구하는 랩
+#몸무게, 키입력받기
 
-st.write('반갑습니다. 저의 웹에 오신 것을 환영합니다.')
+st.write('#체질량 치수 계산기')
 
+height = st.number_input('키를 입력하시오.(cm)', value = 181, step =5)
+st.write(height,'cm')
 
-if st.button('Say hello'):
-    st.write('Why hello there')
-else:
-    st.write('Goodbye')
+weight = st.number_input('체중을 입력하시오.(kg)', value = 73, step =5)
+st.write(weight,'kg')
+
+bmi = weight/((height/100)**2)
+
+def bmi_range(bmi):
+    if bmi>=25:
+        st.error("비만입니다!!!")
+    elif bmi >=23:
+        st.success("과체중입니다.")
+    elif bmi >=18.5:
+        st.info("당신은 정상입니다")
+    else:
+        st.warning("과체중입니다!")  
+
+if st.button('계산'):
+    st.balloons()
+    st.write('당신의 체질량 지수는', round(bmi,2), '입니다.')
+    bmi_range(bmi)
     
+image = Image.open('porsche-1851246_960_720.jpg')
 
-option = st.selectbox(
-    '좋아하는 동물은?',
-    ('강아지', '고양이', '말','토끼','코끼리'))
-
-st.write('내가 좋아하는 동물은', option, '입니다.')        
-st.write(f'좋아하는 동물은 {option} 입니다.')
-
-
-txt = st.text_area('자신을 소개해보세요.', '''
+st.image(image, caption='i can buy this car')       
     
-    ''')
-st.write('입력한 내용은: ', txt)
-
-age = st.slider('나이를 선택하세요.', 0, 130, 25)
-st.write("저의 나이는 ", age, '입니다.')
