@@ -42,39 +42,39 @@ if add_selectbox == "체질량 계산기":
     st.image(image, caption='i will buy this car')
     
     
-elif add_selectbox == '갭마인더':
-    st.write('#여기는 갭마인더 입니다.')       
-    
-data = pd.read_csv('gapminder.csv')
+    elif add_selectbox == '갭마인더':
+        st.write('#여기는 갭마인더 입니다.')       
+        
+    data = pd.read_csv('gapminder.csv')
 
-st.write(data)  
+    st.write(data)  
 
-colors = []
-for x in data['continent']:
-    if x == 'Asia':
-        colors.append('tomato')
-    elif x =='Europe':
-        colors.append('blue')
-    elif x == 'Africa':
-        colors.append('olive')
-    elif x == 'Americas':
-        colors.append('green')
-    else:
-        colors.append('orange')                
+    colors = []
+    for x in data['continent']:
+        if x == 'Asia':
+            colors.append('tomato')
+        elif x =='Europe':
+            colors.append('blue')
+        elif x == 'Africa':
+            colors.append('olive')
+        elif x == 'Americas':
+            colors.append('green')
+        else:
+            colors.append('orange')                
 
-data['colors'] = 'colors'
+    data['colors'] = 'colors'
 
-year = st.slider('년도를 선택하세요.', 1952,2005,2023,step = 5)
-st.write("year  :",year) 
+    year = st.slider('년도를 선택하세요.', 1952,2005,2023,step = 5)
+    st.write("year  :",year) 
 
-data = data[data["year"] == year]
+    data = data[data["year"] == year]
 
-fig, ax = plt.subplots()
-ax.scatter(data['gdpPercap'],data['lifeExp'],s=data['pop']*0.000001)
-ax.set_title("How Does Gdp per Capital relate to Life Expectancy")
-ax.set_xlabel("Gdp per Capital")
-ax.set_ylabel('Life Expectancy')
-st.pyplot(fig)
+    fig, ax = plt.subplots()
+    ax.scatter(data['gdpPercap'],data['lifeExp'],s=data['pop']*0.000001)
+    ax.set_title("How Does Gdp per Capital relate to Life Expectancy")
+    ax.set_xlabel("Gdp per Capital")
+    ax.set_ylabel('Life Expectancy')
+    st.pyplot(fig)
 
 else:
-    st.write('#여기는 마이페이지 입니다.')    
+    st.write('#여기는 마이페이지 입니다.')
